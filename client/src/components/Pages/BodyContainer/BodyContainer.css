@@ -1,0 +1,4 @@
+.body-container {
+	grid-area: body;
+	height: 100%;
+}

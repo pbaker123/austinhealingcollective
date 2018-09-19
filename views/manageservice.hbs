@@ -1,0 +1,67 @@
+<h1>Unapproved Services</h1>
+{{#each unapprovedServices}}
+	<form id="approveService" name="approveService" method="post" action="/manageService">
+    <label for="serviceName">serviceName</label>
+    <input class="text" name="serviceName" type="text" value="{{serviceName}}" />
+    <label for="shortDescription">Short Description</label>
+    <input name="shortDescription" type="text" value="{{shortDescription}}" />
+    <label for="longDescription">Long Description</label>
+    <input name="longDescription" type="text" value="{{longDescription}}" />
+    <input type="radio" name="category" value="healing" /> healing<br>
+    <input type="radio" name="category" value="class" />class<br>
+    <input type="radio" name="category" value="meditation" />meditation
+    <input type="hidden" name="status" value="approved" />
+    <input type="hidden" name="_id" value="{{_id}}" />
+    <input class="btn" type="submit" value="Approve" />
+	</form>
+	<form id="scrapService" name="scrapService" method="post" action="/manageService">
+		<input type="hidden" name="status" value="scrapped" />
+    <input type="hidden" name="_id" value="{{_id}}" />
+    <input class="btn" type="submit" value="scrape" />
+	</form>
+{{/each}}
+
+<h1>Approved Services</h1>
+{{#each approvedServices}}
+	<form id="approveService" name="approveService" method="post" action="/manageService">
+    <label for="serviceName">serviceName</label>
+    <input class="text" name="serviceName" type="text" value="{{serviceName}}" />
+    <label for="shortDescription">Short Description</label>
+    <input name="shortDescription" type="text" value="{{shortDescription}}" />
+    <label for="longDescription">Long Description</label>
+    <input name="longDescription" type="text" value="{{longDescription}}" />
+    <input type="radio" name="category" value="healing" /> healing<br>
+    <input type="radio" name="category" value="class" />class<br>
+    <input type="radio" name="category" value="meditation" />meditation
+    <input type="hidden" name="status" value="approved" />
+    <input type="hidden" name="_id" value="{{_id}}" />
+    <input class="btn" type="submit" value="Update" />
+	</form>
+	<form id="scrapService" name="scrapService" method="post" action="/manageService">
+		<input type="hidden" name="status" value="scrapped" />
+    <input type="hidden" name="_id" value="{{_id}}" />
+    <input class="btn" type="submit" value="scrape" />
+	</form>
+{{/each}}
+
+<h1>Scrapped Services</h1>
+{{#each scrappedServices}}
+	<form id="approveService" name="approveService" method="post" action="/manageService">
+    <label for="serviceName">serviceName</label>
+    <input class="text" name="serviceName" type="text" value="{{serviceName}}" />
+    <label for="shortDescription">Short Description</label>
+    <input name="shortDescription" type="text" value="{{shortDescription}}" />
+    <label for="longDescription">Long Description</label>
+    <input name="longDescription" type="text" value="{{longDescription}}" />
+    <input type="radio" name="category" value="healing" /> healing<br>
+    <input type="radio" name="category" value="class" />class<br>
+    <input type="radio" name="category" value="meditation" />meditation
+    <input type="hidden" name="status" value="approved" />
+    <input type="hidden" name="_id" value="{{_id}}" />
+    <input class="btn" type="submit" value="Approve" />
+	</form>
+	<form id="scrapService" name="scrapService" method="post" action="/deleteService">
+		<input type="hidden" name="_id" value="{{_id}}" />
+    <input class="btn" type="submit" value="scrape" />
+	</form>
+{{/each}}

@@ -1,0 +1,149 @@
+:root {
+	--font-size-0: 0.75rem;
+	--font-size-1: 1rem;
+	--font-size-2: 1.125rem;
+	--font-size-3: 1.266rem;
+	--font-size-4: 1.424rem;
+	--font-size-5: 1.602rem;
+	--font-size-6: 1.802rem;
+}
+
+@media screen and (min-width: 360px) {
+	:root {
+		--font-size-0: calc(0.75rem + (0.889 - 0.75) * (100vw - 22.5rem) / (85.375 - 22.5));
+		--font-size-2: calc(1.125rem + (1.333 - 1.125) * (100vw - 22.5rem) / (85.375 - 22.5));
+		--font-size-3: calc(1.266rem + (1.777 - 1.266) * (100vw - 22.5rem) / (85.375 - 22.5));
+		--font-size-4: calc(1.424rem + (2.369 - 1.424) * (100vw - 22.5rem) / (85.375 - 22.5));
+		--font-size-5: calc(1.602rem + (3.157 - 1.602) * (100vw - 22.5rem) / (85.375 - 22.5));
+		--font-size-6: calc(1.802rem + (4.208 - 1.802) * (100vw - 22.5rem) / (85.375 - 22.5));
+	}
+}
+
+@media screen and (min-width: 768px) {
+	:root{
+				
+	}
+}
+
+@media screen and (min-width: 1366px) {
+	:root{
+		--font-size-0: 0.889rem;
+		--font-size-2: 1.333rem;
+		--font-size-3: 1.777rem;
+		--font-size-4: 2.369rem;
+		--font-size-5: 3.157rem;
+		--font-size-6: 4.208rem;		
+	}
+}
+
+@font-face {
+ 	font-family: 'FF Meta VF';
+	src: url('https://variablefonts.monotype.com/MetaVariableDemo-Set.woff2') format('woff2');
+	font-display: swap;
+	font-style: normal italic;
+	font-weight: 100 900;
+}
+
+:root {
+	font-family: "FF Meta VF", "Arial", san-serif;
+	margin: 0;
+	padding: 0;
+}
+
+html, body {
+	height: 100%;
+}
+
+.h1 {
+	font-size: var(--font-size-6);
+	font-weight: calc(50 * var(--font-size-6) + 263.33333);
+	line-height: calc(--font-size-6 * 1.2);
+}
+
+.h2 {
+	font-size: var(--font-size-5);
+	font-weight: calc(57.5 * var(--font-size-5) + 263.66667);
+	line-height: calc(--font-size-5 * 1.2);
+}
+
+.h3 {
+	font-size: var(--font-size-4);
+	font-weight: calc(65 * var(--font-size-4) + 210);
+	line-height: calc(--font-size-4 * 1.2);
+}
+
+.h4 {
+	font-size: var(--font-size-3);
+	font-weight: calc(70 * var(--font-size-3) + 183.33333);
+	line-height: calc(--font-size-3 * 1.2);
+}
+
+.h5 {
+	font-size: var(--font-size-2);
+	font-weight: calc(70 * var(--font-size-2) + 183.33);
+	line-height: calc(--font-size-2 * 1.2);
+}
+
+.h6, p {
+	font-size: var(--font-size-1);
+	font-weight: calc(70 * var(--font-size-1) + 176.67);
+	line-height: calc(--font-size-1 * 1.2);
+}
+
+.h7 {
+	font-size: var(--font-size-0);
+	font-weight: calc(70 * var(--font-size-0) + 171.67);
+	line-height: calc(--font-size-0 * 1.2);
+}
+
+.baby-powder-bg {
+	background-color: #FEFEFA;
+}
+
+.alabaster-bg {
+	background-color: #F2F0E6;
+}
+
+.darkslateblue-bg {
+	background-color: #3C6478;
+}
+
+.darkslategrey-bg {
+	background-color: #083045;
+}
+
+.darkslatepurple-bg {
+	background-color: #222233;
+}
+
+.khaki-bg {
+	background-color: #EED369;
+}
+
+.jet-text {
+	color: #131516;
+}
+
+.snow-text {
+	color: #FEFEFA;
+}
+
+.khaki-text {
+	color: #EED369;
+}
+
+.lightsteelblue-text {
+	color: #A8B1FF;
+}
+
+.app-container {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto 1fr 80px;
+	grid-template-areas:
+	'header'
+	'body'
+	'footer';
+	width: 100vw;
+	min-height: 100%;
+}

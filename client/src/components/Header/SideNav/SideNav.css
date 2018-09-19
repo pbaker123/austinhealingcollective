@@ -1,0 +1,30 @@
+.sidenav {
+    height: 90%;
+    width: 0px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: 370px;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+    'buttons' 'menu' 'usermenu';
+}
+
+.sidenav-buttons {
+    grid-area: buttons;
+}
+
+.sidenav-menu {
+    grid-area: menu;
+}
+
+.sidenav-usermenu {
+    grid-area: usermenu;
+}

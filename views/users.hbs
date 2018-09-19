@@ -1,0 +1,25 @@
+{{#each userData}}
+	<div>
+		<p>{{firstName}}</p>
+		<p>{{accountStatus}}</p>
+		 <form id="userUpdate" name="userUpdate" method="post" action="/userUpdate">
+		  <input type="radio" name="accountStatus" value="user" {{#if data.user}}checked{{/if}}> user<br>
+		  <input type="radio" name="accountStatus" value="provider" {{#if data.provider}}checked{{/if}}> provider<br>
+		  <input type="radio" name="accountStatus" value="admin" {{#if data.admin}}checked{{/if}}>admin<br>
+		  <input type="radio" name="accountStatus" value="inactive" {{#if data.inactive}}checked{{/if}}>in active
+		  <input type="hidden" name="_id" value="{{_id}}" >
+		  
+		  <input class="btn" type="submit" value="Update" id="userUpdate" />
+		</form> 
+
+	</div>
+{{/each}}
+
+<h1>Classes</h1>
+		  {{#each classData}}
+		  	<input type="checkbox" name="serviceId" value="{{_id}}">{{serviceName}}<br>
+		  {{/each}}
+		  <h1>Meditations</h1>
+		  {{#each meditationData}}
+		  	<input type="checkbox" name="serviceId" value="{{_id}}">{{serviceName}}<br>
+		  {{/each}}

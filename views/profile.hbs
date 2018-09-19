@@ -1,0 +1,17 @@
+<h2> update your information </h2>
+<form id="profileUpdate" name="profileUpdate" method="post" action="/profileUpdate">
+    <label for="email">Email Address</label>
+    <input class="text" name="email" type="email" value={{email}} />
+    <label for="firstname">Firstname</label>
+    <input name="firstname" type="text" value={{firstName}} />
+    <label for="lastname">Lastname</label>
+    <input name="lastname" type="text" value={{lastName}} />
+    <input type="checkbox" name="emailOptInUpcomingEvents" value="true" {{#if emailOptInUpcomingEvents}}checked{{/if}} />Opt in to receive emails about upcoming events<br>
+    <input type="checkbox" name="emailOptInNewsLetter" value="true" {{#if emailOptInNewsLetter}}checked{{/if}} />Opt in to receive our newsletter via email<br>
+    <!-- Bio and Photo should not show if accountStatus is user -->
+    <label for="biography">Biography></label>
+    <input type="text" name="biography" value={{biography}} />
+    <label for="photo">Photo></label>
+    <input type="text" name="photo" />
+    <input class="btn" type="submit" value="Update" />
+</form>

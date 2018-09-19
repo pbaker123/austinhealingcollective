@@ -1,0 +1,15 @@
+<h2> submit a new service </h2>
+<form id="newService" name="newService" method="post" action="/newService">
+    <label for="serviceName">serviceName</label>
+    <input class="text" name="serviceName" type="text" />
+    <label for="shortDescription">Short Description</label>
+    <input name="shortDescription" type="text" />
+    <label for="longDescription">Long Description</label>
+    <input name="longDescription" type="text" />
+    <input type="radio" name="accountStatus" value="user,{{_id}}" {{#if data.user}}checked{{/if}}> user<br>
+    <input type="radio" name="category" value="healing" /> healing<br>
+    <input type="radio" name="category" value="class" />class<br>
+    <input type="radio" name="category" value="meditation" />meditation
+    <input type="hidden" name="creator" value="{{_id}}" >
+    <input class="btn" type="submit" value="Submit" />
+</form>

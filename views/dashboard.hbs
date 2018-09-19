@@ -1,0 +1,13 @@
+<h2>Dashboard</h2>
+<h5>Hurray! you are logged in.</h5>
+<a href="/profile">Profile</p>
+
+{{#if admin}}
+<a href="/users">User Management</p>
+<a href="/newservice">New Service</p>
+<a href="/manageservice">Manage Services</p>
+{{/if}}
+
+{{#if provider}}
+<a href="/newservice">New Service</p>
+{{/if}}
