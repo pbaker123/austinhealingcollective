@@ -7,8 +7,8 @@ var express = require('express');
 var mongoose = require("mongoose");
 var passport = require('passport');
 var session = require('express-session');
-// var MongoStore = require('connect-mongo')(session);
-var SessionStore = require('session-mongoose')(express);
+var MongoStore = require('connect-mongo')(session);
+// var SessionStore = require('session-mongoose')(express);
 
 // For Express
 var app = express();
@@ -23,20 +23,27 @@ app.use(bodyParser.json());
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/project3";
 
 // For Passport
-app.use(session({ 
-	store: new SessionStore({
-		db: mongoose.connection.db,
-		url: MONGODB_URL,
-		interval: 1200000
-	}),
-	cookie: {
-		maxAge: 1200000
-	},
-	secret: 'mississippi unicorn', // session secret
-	resave: true,
-	saveUninitialized: true
-	})
-); 
+// app.use(session({ 
+// 	store: new SessionStore({
+// 		db: mongoose.connection.db,
+// 		url: MONGODB_URL,
+// 		interval: 1200000
+// 	}),
+// 	cookie: {
+// 		maxAge: 1200000
+// 	},
+// 	secret: 'mississippi unicorn', // session secret
+// 	resave: true,
+// 	saveUninitialized: true
+// 	})
+// ); 
+app.use(session({
+    secret: 'sdfasd sfdasfd',
+    store: new MongoStore({
+        db              : mongoose.connection.db,
+    })
+}));
+
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
