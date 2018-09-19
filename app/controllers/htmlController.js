@@ -171,10 +171,10 @@ exports.userUpdate = function(req, res) {
 };
 
 exports.newService = function(req, res) {
-  db.Service.create(req.body, function(err, doc) {
-    if (err) return res.json(500, { error: err });
-    res.redirect('users');
-  })
+  db.Service
+    .create(req.body)
+    .then((service) => res.json(service);
+    .catch(err => res.json(err))
 };
 
 exports.manageService = function(req, res) {
