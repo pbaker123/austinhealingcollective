@@ -80,9 +80,9 @@ exports.users = function(req, res) {
   });
 };
 
-exports.newservice = function(req, res) {
-  res.render('newservice', {_id: req.user._id});
-};
+// exports.newservice = function(req, res) {
+//   res.render('newservice', {_id: req.user._id});
+// };
 
 exports.manageservice = function(req, res) {
   db.Service.find().populate("users").then(function(serviceData) {
@@ -171,15 +171,15 @@ exports.userUpdate = function(req, res) {
 };
 
 exports.newService = function(req, res) {
-  console.log(req.body)
-  db.Service.create(req.body).then(function(service) {
-    
-    res.json(service);
-  });
+  db.Service.create(req.body, function(err, doc) {
+    if (err) return res.json(500, { error: err });
+    res.redirect('users');
+  })
 };
 
 exports.manageService = function(req, res) {
-  db.Service.findByIdAndUpdate(req.body._id, req.body, function(err, doc) {
+  db.Service
+    .findByIdAndUpdate(req.body._id, req.body, function(err, doc) {
     if (err) return res.send(500, {error: err});
     res.redirect('manageservice')
   });
