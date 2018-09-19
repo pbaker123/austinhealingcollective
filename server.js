@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/project3";
 
 // For Passport
-var SessionStore = require('session-mongoose')(app);
+var SessionStore = require('session-mongoose')(express);
 app.use(session({ 
 	store: new SessionStore({
 		url: MONGODB_URL,
