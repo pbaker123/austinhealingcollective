@@ -20,6 +20,11 @@ app.use(bodyParser.json());
 
 // For Mongoose
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/project3";
+//////////////////////////////////////
+////////// Connect Database //////////
+//////////////////////////////////////
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
 
 // For Passport
 var SessionStore = require('session-mongoose')(express);
@@ -55,10 +60,6 @@ require("./app/routes/htmlRoutes.js")(app);
 // ********************************
 require('./app/config/passport/passport.js')(passport, db.User);
 
-//////////////////////////////////////
-////////// Connect Database //////////
-//////////////////////////////////////
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 //////////////////////////////////
 ////////// Start Server //////////
