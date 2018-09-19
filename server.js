@@ -54,7 +54,8 @@ require('./app/config/passport/passport.js')(passport, db.User);
 //////////////////////////////////////
 ////////// Connect Database //////////
 //////////////////////////////////////
-mongoose.connect("mongodb://localhost/project3", { useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/project3";
+mongoose.connect(MONGODDB_URI, { useNewUrlParser: true });
 
 //////////////////////////////////
 ////////// Start Server //////////
