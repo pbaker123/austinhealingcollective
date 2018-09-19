@@ -3,7 +3,6 @@
 // **********************************
 require('dotenv').load();
 var bodyParser = require('body-parser');
-// var exphbs = require('express-handlebars');
 var express = require('express');
 var SessionStore = require('session-mongoose')(express);
 var mongoose = require("mongoose");
@@ -38,13 +37,6 @@ app.use(session({
 ); 
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
-
-// For Handlebars
-// app.engine('hbs', exphbs({
-//     extname: '.hbs',
-//     defaultLayout: 'main'
-// }));
-// app.set('view engine', '.hbs');
 
 // ****************************
 // ********** MODELS **********
