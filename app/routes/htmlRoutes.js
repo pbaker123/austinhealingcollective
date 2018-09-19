@@ -15,7 +15,7 @@ module.exports = function(app, passport) {
   app.get('/dashboard', isLoggedIn, htmlController.dashboard); // Route for mainpage with access control
   app.get('/profile', isLoggedIn, htmlController.profile); // Route for profile updates
   app.get('/users', isAdmin, htmlController.users); // Route for admins to update accountStatus
-  app.get('/newservice', isProvider, htmlController.newservice);
+  
   app.get('/manageservice', isAdmin, htmlController.manageservice);
   app.get('/logout',htmlController.logout); // Route for user logout
   app.get('/practitioneraccounts', htmlController.practitionerAccounts); // React Route
@@ -31,7 +31,7 @@ module.exports = function(app, passport) {
   app.post('/userUpdate', htmlController.userUpdate);
   app.post('/manageService', htmlController.manageService);
   // app.post('/deleteService', htmlController.deleteService);
-  app.post('/newservice', isProvider, htmlController.newService); // React Route
+  app.post('/newservice', htmlController.newService); // React Route
 
   // ********************************
   // ********** PUT Routes **********
