@@ -40,7 +40,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/project3";
 app.use(session({
     secret: 'sdfasd sfdasfd',
     store: new MongoStore({
-        db              : mongoose.connection.db,
+        db: mongoose.connection.db
     })
 }));
 
