@@ -5,6 +5,7 @@ require('dotenv').load();
 var bodyParser = require('body-parser');
 // var exphbs = require('express-handlebars');
 var express = require('express');
+var SessionStore = require('session-mongoose')(express);
 var mongoose = require("mongoose");
 var passport = require('passport');
 var session = require('express-session');
@@ -18,8 +19,18 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// For Mongoose
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/project3";
+
 // For Passport
 app.use(session({ 
+	store: new SessionStore({
+		url: MONGODB_URL,
+		interval: 1200000
+	}),
+	cookie: {
+		maxAge: 1200000
+	}
 	secret: 'mississippi unicorn', // session secret
 	resave: true,
 	saveUninitialized: true
@@ -54,7 +65,6 @@ require('./app/config/passport/passport.js')(passport, db.User);
 //////////////////////////////////////
 ////////// Connect Database //////////
 //////////////////////////////////////
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/project3";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 //////////////////////////////////
