@@ -40,7 +40,10 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/project3";
 app.use(session({
     secret: 'sdfasd sfdasfd',
     store: new MongoStore({
-        db: mongoose.connection.db
+        host: '127.0.0.1',
+        port: '27017',
+        db: 'session',
+        url: 'mongodb://heroku_d7jr2w1n:d2jcrknr857ep9kad4ss2n4ktf@ds163382.mlab.com:63382/heroku_d7jr2w1n'
     })
 }));
 
