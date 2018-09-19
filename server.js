@@ -62,7 +62,7 @@ var db = require("./app/models"); // app/models/index.js loads all the other mod
 require('./app/routes/authRoutes.js')(app,passport);
 require("./app/routes/htmlRoutes.js")(app);
 app.get("*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/public/index.html"));
 });
 
 // ********************************
