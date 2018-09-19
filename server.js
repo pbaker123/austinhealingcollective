@@ -30,7 +30,7 @@ app.use(session({
 	}),
 	cookie: {
 		maxAge: 1200000
-	}
+	},
 	secret: 'mississippi unicorn', // session secret
 	resave: true,
 	saveUninitialized: true
