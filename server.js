@@ -4,10 +4,11 @@
 require('dotenv').load();
 var bodyParser = require('body-parser');
 var express = require('express');
-
 var mongoose = require("mongoose");
 var passport = require('passport');
 var session = require('express-session');
+// var MongoStore = require('connect-mongo')(session);
+var SessionStore = require('session-mongoose')(express);
 
 // For Express
 var app = express();
@@ -20,16 +21,11 @@ app.use(bodyParser.json());
 
 // For Mongoose
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/project3";
-//////////////////////////////////////
-////////// Connect Database //////////
-//////////////////////////////////////
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
-
 
 // For Passport
-var SessionStore = require('session-mongoose')(express);
 app.use(session({ 
 	store: new SessionStore({
+		db: mongoose.connection.db,
 		url: MONGODB_URL,
 		interval: 1200000
 	}),
@@ -60,6 +56,10 @@ require("./app/routes/htmlRoutes.js")(app);
 // ********************************
 require('./app/config/passport/passport.js')(passport, db.User);
 
+//////////////////////////////////////
+////////// Connect Database //////////
+//////////////////////////////////////
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 //////////////////////////////////
 ////////// Start Server //////////
