@@ -24,22 +24,10 @@ app.use(bodyParser.json());
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/project3";
 
 // For Passport
-// app.use(session({ 
-// 	store: new SessionStore({
-// 		db: mongoose.connection.db,
-// 		url: MONGODB_URL,
-// 		interval: 1200000
-// 	}),
-// 	cookie: {
-// 		maxAge: 1200000
-// 	},
-// 	secret: 'mississippi unicorn', // session secret
-// 	resave: true,
-// 	saveUninitialized: true
-// 	})
-// ); 
 app.use(session({
     secret: 'sdfasd sfdasfd',
+    resave: true,
+    saveUninitialized: true,
     store: new MongoStore({
         host: '127.0.0.1',
         port: '27017',
