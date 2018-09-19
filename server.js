@@ -20,9 +20,9 @@ app.use(bodyParser.json());
 
 // For Passport
 app.use(session({ 
-	secret: process.env.SECRET, // session secret
-	resave: process.env.RESAVE, 
-	saveUninitialized: process.env.SAVEUNINITIALIZED
+	secret: 'mississippi unicorn', // session secret
+	resave: true,
+	saveUninitialized: true
 	})
 ); 
 app.use(passport.initialize());
