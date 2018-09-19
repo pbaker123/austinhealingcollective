@@ -4,7 +4,7 @@
 require('dotenv').load();
 var bodyParser = require('body-parser');
 var express = require('express');
-var SessionStore = require('session-mongoose')(express);
+
 var mongoose = require("mongoose");
 var passport = require('passport');
 var session = require('express-session');
@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/project3";
 
 // For Passport
+var SessionStore = require('session-mongoose')(app);
 app.use(session({ 
 	store: new SessionStore({
 		url: MONGODB_URL,
