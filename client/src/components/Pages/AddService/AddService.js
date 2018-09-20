@@ -26,6 +26,7 @@ class AddService extends Component {
  
   handleFormSubmit = event => {
     event.preventDefault();
+    console.log(this.state)
     API.post('/newservice', this.state)
       .then(res => {
         if (res.status === 200) {
@@ -39,9 +40,7 @@ class AddService extends Component {
       }).catch(err => {
         console.log(err);
         this.passStateUp({
-          currentPage: "SignInFailed", 
-          loggedIn: false, 
-          
+          currentPage: "SignInFailed",           
         })
       });    
   };
