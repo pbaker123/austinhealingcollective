@@ -26,7 +26,6 @@ class AddService extends Component {
  
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state)
     API.post('/newservice', this.state)
       .then(res => {
         if (res.status === 200) {
